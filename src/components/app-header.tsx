@@ -19,9 +19,9 @@ const AppHeader = () => {
   }
 
   return (
-    <div className={` flex shrink-0 items-center gap-2 border-b bg-background px-4 transition-all duration-400 ${isCollapsed ? 'h-12' : 'h-16'}`}>
+    <div className={` flex shrink-0 items-center gap-2 border-b bg-background px-4 transition-all duration-250 ${isCollapsed ? 'h-12' : 'h-16'}`}>
       <div className="flex items-center gap-2">
-        <SidebarTrigger className="p-4.5 cursor-pointer" />
+        <SidebarTrigger className="size-10 cursor-pointer " />
       </div>
       <div className="flex items-center gap-2 ml-auto">
         <ModeToggle />

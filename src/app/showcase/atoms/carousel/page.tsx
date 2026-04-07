@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { Card, CardContent } from "@/components/atoms/card"
 import {
   Carousel,
   CarouselContent,
@@ -9,7 +10,6 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/atoms/carousel"
-import { Card, CardContent } from "@/components/atoms/card"
 import { ShowcaseSection } from "@/app/showcase/showcase-section"
 
 export default function CarouselShowcasePage() {
@@ -18,9 +18,13 @@ export default function CarouselShowcasePage() {
   const [count, setCount] = React.useState(0)
 
   React.useEffect(() => {
-    if (!api) return
+    if (!api) {
+      return
+    }
+
     setCount(api.scrollSnapList().length)
     setCurrent(api.selectedScrollSnap() + 1)
+
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1)
     })
@@ -35,123 +39,179 @@ export default function CarouselShowcasePage() {
         </p>
       </div>
 
-      {/* Default */}
+      {/* Basic Usage */}
       <ShowcaseSection
-        title="Default"
-        description="Basic horizontal carousel with previous/next controls."
-        childrenClassName="max-w-sm"
+        title="Basic Usage"
+        description="A standard horizontal carousel with navigation buttons."
       >
-        <Carousel className="w-full">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <span className="text-4xl font-semibold">{index + 1}</span>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </ShowcaseSection>
-
-      {/* Sizes */}
-      <ShowcaseSection
-        title="Sizes"
-        description="Use basis-* classes on CarouselItem to control how many slides are visible."
-        childrenClassName="max-w-sm"
-      >
-        <Carousel className="w-full">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="basis-1/3">
-                <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-2">
-                    <span className="text-2xl font-semibold">{index + 1}</span>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </ShowcaseSection>
-
-      {/* Spacing */}
-      <ShowcaseSection
-        title="Spacing"
-        description="Adjust pl-* on CarouselItem and the negative margin on CarouselContent for custom spacing."
-        childrenClassName="max-w-sm"
-      >
-        <Carousel className="w-full">
-          <CarouselContent className="-ml-1">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="pl-1 basis-1/3">
-                <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-2">
-                    <span className="text-2xl font-semibold">{index + 1}</span>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </ShowcaseSection>
-
-      {/* Orientation */}
-      <ShowcaseSection
-        title="Orientation"
-        description='Use orientation="vertical" for a vertically scrolling carousel.'
-        childrenClassName="max-w-xs"
-      >
-        <Carousel orientation="vertical" className="w-full max-w-xs">
-          <CarouselContent className="-mt-1 h-[200px]">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="pt-1 basis-1/3">
-                <Card>
-                  <CardContent className="flex items-center justify-center p-6">
-                    <span className="text-3xl font-semibold">{index + 1}</span>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </ShowcaseSection>
-
-      {/* API — dot indicators */}
-      <ShowcaseSection
-        title="API"
-        description="Use setApi to get the carousel API and track the current slide."
-        childrenClassName="max-w-sm"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <Carousel setApi={setApi} className="w-full">
+        <div className="px-12">
+          <Carousel className="w-full max-w-xs mx-auto">
             <CarouselContent>
               {Array.from({ length: 5 }).map((_, index) => (
                 <CarouselItem key={index}>
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">{index + 1}</span>
-                    </CardContent>
-                  </Card>
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-4xl font-semibold">{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          <p className="text-sm text-muted-foreground">
+        </div>
+      </ShowcaseSection>
+
+      {/* Sizes */}
+      <ShowcaseSection
+        title="Sizes"
+        description="Set the item size using the basis utility class."
+      >
+        <div className="px-12">
+          <Carousel
+            opts={{
+              align: "start",
+            }}
+            className="w-full max-w-sm mx-auto"
+          >
+            <CarouselContent>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-3xl font-semibold">{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </ShowcaseSection>
+
+      {/* Spacing */}
+      <ShowcaseSection
+        title="Spacing"
+        description="Adjust items spacing using the -ml utility on the content and pl utility on items."
+      >
+        <div className="px-12">
+          <Carousel className="w-full max-w-sm mx-auto">
+            <CarouselContent className="-ml-1">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-3xl font-semibold">{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </ShowcaseSection>
+
+      {/* Orientation */}
+      <ShowcaseSection
+        title="Orientation"
+        description="A vertical carousel with navigation buttons."
+      >
+        <div className="flex justify-center py-10">
+          <Carousel
+            orientation="vertical"
+            opts={{
+              align: "start",
+            }}
+            className="w-full max-w-xs"
+          >
+            <CarouselContent className="-mt-1 h-[200px]">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index} className="pt-1 basis-1/2">
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex items-center justify-center p-6">
+                        <span className="text-2xl font-semibold">{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </ShowcaseSection>
+
+      {/* Options */}
+      <ShowcaseSection
+        title="Options"
+        description="Configure carousel behavior using the opts prop (e.g. looping)."
+      >
+        <div className="px-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-xs mx-auto"
+          >
+            <CarouselContent>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-4xl font-semibold">{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </ShowcaseSection>
+
+      {/* API */}
+      <ShowcaseSection
+        title="API Usage"
+        description="Get full control over the carousel using the API instance."
+      >
+        <div className="px-12">
+          <Carousel setApi={setApi} className="w-full max-w-xs mx-auto">
+            <CarouselContent>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-4xl font-semibold">{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+          <div className="py-2 text-center text-sm text-muted-foreground">
             Slide {current} of {count}
-          </p>
+          </div>
         </div>
       </ShowcaseSection>
     </div>

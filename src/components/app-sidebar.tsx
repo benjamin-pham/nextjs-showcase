@@ -1,13 +1,13 @@
 "use client"
 import { Sidebar, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar, SidebarContent, SidebarGroup, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "@/components/atoms/sidebar";
 import { ChevronDown } from "lucide-react";
-import { IMenuItem, menuItems } from "@/components/menu-item";
+import { IMenuItem } from "@/components/menu-item";
 import Link from "next/link";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/atoms/collapsible";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/atoms/popover";
 import { usePathname } from "next/navigation";
 
-export function AppSidebar() {
+export function AppSidebar({ menuItems }: { menuItems: IMenuItem[] }) {
   const { state } = useSidebar();
 
   return (

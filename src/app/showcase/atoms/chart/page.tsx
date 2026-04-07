@@ -36,13 +36,13 @@ const barData = [
   { month: "Jan", desktop: 186, mobile: 80 },
   { month: "Feb", desktop: 305, mobile: 200 },
   { month: "Mar", desktop: 237, mobile: 120 },
-  { month: "Apr", desktop: 73,  mobile: 190 },
+  { month: "Apr", desktop: 73, mobile: 190 },
   { month: "May", desktop: 209, mobile: 130 },
   { month: "Jun", desktop: 214, mobile: 140 },
 ]
 const barConfig: ChartConfig = {
   desktop: { label: "Desktop", color: "var(--chart-1)" },
-  mobile:  { label: "Mobile",  color: "var(--chart-2)" },
+  mobile: { label: "Mobile", color: "var(--chart-2)" },
 }
 
 // ── Horizontal Bar Chart ───────────────────────────────────────────────────
@@ -67,7 +67,7 @@ const lineData = [
   { month: "Jun", revenue: 2390, expenses: 3800 },
 ]
 const lineConfig: ChartConfig = {
-  revenue:  { label: "Revenue",  color: "var(--chart-1)" },
+  revenue: { label: "Revenue", color: "var(--chart-1)" },
   expenses: { label: "Expenses", color: "var(--chart-2)" },
 }
 
@@ -76,37 +76,37 @@ const areaData = [
   { month: "Jan", desktop: 186, mobile: 80 },
   { month: "Feb", desktop: 305, mobile: 200 },
   { month: "Mar", desktop: 237, mobile: 120 },
-  { month: "Apr", desktop: 73,  mobile: 190 },
+  { month: "Apr", desktop: 73, mobile: 190 },
   { month: "May", desktop: 209, mobile: 130 },
   { month: "Jun", desktop: 214, mobile: 140 },
 ]
 const areaConfig: ChartConfig = {
   desktop: { label: "Desktop", color: "var(--chart-1)" },
-  mobile:  { label: "Mobile",  color: "var(--chart-2)" },
+  mobile: { label: "Mobile", color: "var(--chart-2)" },
 }
 
 // ── Pie Chart ──────────────────────────────────────────────────────────────
 const pieData = [
-  { browser: "Chrome",  visitors: 275 },
-  { browser: "Safari",  visitors: 200 },
+  { browser: "Chrome", visitors: 275 },
+  { browser: "Safari", visitors: 200 },
   { browser: "Firefox", visitors: 187 },
-  { browser: "Edge",    visitors: 173 },
-  { browser: "Other",   visitors: 90  },
+  { browser: "Edge", visitors: 173 },
+  { browser: "Other", visitors: 90 },
 ]
 const pieConfig: ChartConfig = {
   visitors: { label: "Visitors" },
-  Chrome:   { label: "Chrome",  color: "var(--chart-1)" },
-  Safari:   { label: "Safari",  color: "var(--chart-2)" },
-  Firefox:  { label: "Firefox", color: "var(--chart-3)" },
-  Edge:     { label: "Edge",    color: "var(--chart-4)" },
-  Other:    { label: "Other",   color: "var(--chart-5)" },
+  Chrome: { label: "Chrome", color: "var(--chart-1)" },
+  Safari: { label: "Safari", color: "var(--chart-2)" },
+  Firefox: { label: "Firefox", color: "var(--chart-3)" },
+  Edge: { label: "Edge", color: "var(--chart-4)" },
+  Other: { label: "Other", color: "var(--chart-5)" },
 }
 
 // ── Radial Bar Chart ───────────────────────────────────────────────────────
 const radialData = [{ desktop: 1260, mobile: 570 }]
 const radialConfig: ChartConfig = {
   desktop: { label: "Desktop", color: "var(--chart-1)" },
-  mobile:  { label: "Mobile",  color: "var(--chart-2)" },
+  mobile: { label: "Mobile", color: "var(--chart-2)" },
 }
 
 // ── Scatter Chart ──────────────────────────────────────────────────────────
@@ -118,7 +118,7 @@ const scatterData = [
   { x: 150, y: 400, z: 500 },
   { x: 110, y: 280, z: 200 },
   { x: 200, y: 150, z: 320 },
-  { x: 90,  y: 350, z: 150 },
+  { x: 90, y: 350, z: 150 },
   { x: 160, y: 180, z: 360 },
   { x: 130, y: 320, z: 240 },
 ]
@@ -128,25 +128,25 @@ const scatterConfig: ChartConfig = {
 
 // ── Radar Chart ────────────────────────────────────────────────────────────
 const radarData = [
-  { skill: "Math",    alice: 120, bob: 110 },
-  { skill: "English", alice: 98,  bob: 130 },
-  { skill: "Physics", alice: 86,  bob: 130 },
-  { skill: "History", alice: 99,  bob: 100 },
-  { skill: "Art",     alice: 85,  bob: 90  },
-  { skill: "Music",   alice: 65,  bob: 85  },
+  { skill: "Math", alice: 120, bob: 110 },
+  { skill: "English", alice: 98, bob: 130 },
+  { skill: "Physics", alice: 86, bob: 130 },
+  { skill: "History", alice: 99, bob: 100 },
+  { skill: "Art", alice: 85, bob: 90 },
+  { skill: "Music", alice: 65, bob: 85 },
 ]
 const radarConfig: ChartConfig = {
   alice: { label: "Alice", color: "var(--chart-1)" },
-  bob:   { label: "Bob",   color: "var(--chart-2)" },
+  bob: { label: "Bob", color: "var(--chart-2)" },
 }
 
 // ── Funnel Chart ───────────────────────────────────────────────────────────
 const funnelData = [
-  { name: "Sent",     value: 5000, fill: "var(--chart-1)" },
-  { name: "Opened",   value: 3200, fill: "var(--chart-2)" },
-  { name: "Clicked",  value: 1800, fill: "var(--chart-3)" },
-  { name: "Signed up",value: 900,  fill: "var(--chart-4)" },
-  { name: "Converted",value: 380,  fill: "var(--chart-5)" },
+  { name: "Sent", value: 5000, fill: "var(--chart-1)" },
+  { name: "Opened", value: 3200, fill: "var(--chart-2)" },
+  { name: "Clicked", value: 1800, fill: "var(--chart-3)" },
+  { name: "Signed up", value: 900, fill: "var(--chart-4)" },
+  { name: "Converted", value: 380, fill: "var(--chart-5)" },
 ]
 const funnelConfig: ChartConfig = {
   value: { label: "Count" },
@@ -162,19 +162,19 @@ const composedData = [
   { month: "Jun", bar: 340, line: 380, area: 290 },
 ]
 const composedConfig: ChartConfig = {
-  bar:  { label: "Bar",  color: "var(--chart-1)" },
+  bar: { label: "Bar", color: "var(--chart-1)" },
   line: { label: "Line", color: "var(--chart-2)" },
   area: { label: "Area", color: "var(--chart-3)" },
 }
 
 // ── Stacked Bar Chart ──────────────────────────────────────────────────────
 const stackedBarData = [
-  { month: "Jan", a: 120, b: 80,  c: 60 },
+  { month: "Jan", a: 120, b: 80, c: 60 },
   { month: "Feb", a: 180, b: 100, c: 80 },
   { month: "Mar", a: 150, b: 120, c: 90 },
-  { month: "Apr", a: 90,  b: 60,  c: 110 },
+  { month: "Apr", a: 90, b: 60, c: 110 },
   { month: "May", a: 200, b: 140, c: 70 },
-  { month: "Jun", a: 160, b: 90,  c: 100 },
+  { month: "Jun", a: 160, b: 90, c: 100 },
 ]
 const stackedBarConfig: ChartConfig = {
   a: { label: "Series A", color: "var(--chart-1)" },
@@ -226,23 +226,23 @@ const sunburstData = {
     {
       name: "Frontend",
       children: [
-        { name: "React",   value: 400 },
-        { name: "Vue",     value: 200 },
-        { name: "Svelte",  value: 150 },
+        { name: "React", value: 400 },
+        { name: "Vue", value: 200 },
+        { name: "Svelte", value: 150 },
       ],
     },
     {
       name: "Backend",
       children: [
-        { name: "Node",    value: 300 },
-        { name: "Go",      value: 250 },
-        { name: "Python",  value: 200 },
+        { name: "Node", value: 300 },
+        { name: "Go", value: 250 },
+        { name: "Python", value: 200 },
       ],
     },
     {
       name: "Mobile",
       children: [
-        { name: "iOS",     value: 220 },
+        { name: "iOS", value: 220 },
         { name: "Android", value: 180 },
       ],
     },
@@ -327,14 +327,14 @@ const multiScatterConfig: ChartConfig = {
 
 // ── Treemap ────────────────────────────────────────────────────────────────
 const treemapData = [
-  { name: "React",   size: 4000 },
-  { name: "Vue",     size: 2800 },
+  { name: "React", size: 4000 },
+  { name: "Vue", size: 2800 },
   { name: "Angular", size: 1800 },
-  { name: "Svelte",  size: 1200 },
-  { name: "Solid",   size: 900  },
-  { name: "Qwik",    size: 600  },
-  { name: "Remix",   size: 500  },
-  { name: "Astro",   size: 400  },
+  { name: "Svelte", size: 1200 },
+  { name: "Solid", size: 900 },
+  { name: "Qwik", size: 600 },
+  { name: "Remix", size: 500 },
+  { name: "Astro", size: 400 },
 ]
 const treemapColors = [
   "var(--chart-1)", "var(--chart-2)", "var(--chart-3)",
@@ -374,7 +374,7 @@ export default function ChartShowcasePage() {
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
             <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-            <Bar dataKey="mobile"  fill="var(--color-mobile)"  radius={4} />
+            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
           </BarChart>
         </ChartContainer>
       </ShowcaseSection>
@@ -409,7 +409,7 @@ export default function ChartShowcasePage() {
             <YAxis tickLine={false} axisLine={false} tickMargin={8} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
-            <Line type="monotone" dataKey="revenue"  stroke="var(--color-revenue)"  strokeWidth={2} dot={false} />
+            <Line type="monotone" dataKey="revenue" stroke="var(--color-revenue)" strokeWidth={2} dot={false} />
             <Line type="monotone" dataKey="expenses" stroke="var(--color-expenses)" strokeWidth={2} dot={false} />
           </LineChart>
         </ChartContainer>
@@ -429,7 +429,7 @@ export default function ChartShowcasePage() {
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
             <Area type="monotone" dataKey="desktop" stackId="a" stroke="var(--color-desktop)" fill="var(--color-desktop)" fillOpacity={0.4} />
-            <Area type="monotone" dataKey="mobile"  stackId="a" stroke="var(--color-mobile)"  fill="var(--color-mobile)"  fillOpacity={0.4} />
+            <Area type="monotone" dataKey="mobile" stackId="a" stroke="var(--color-mobile)" fill="var(--color-mobile)" fillOpacity={0.4} />
           </AreaChart>
         </ChartContainer>
       </ShowcaseSection>
@@ -447,9 +447,9 @@ export default function ChartShowcasePage() {
             <YAxis tickLine={false} axisLine={false} tickMargin={8} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
-            <Area  type="monotone" dataKey="area" stroke="var(--color-area)" fill="var(--color-area)" fillOpacity={0.3} />
-            <Bar   dataKey="bar"  fill="var(--color-bar)"  radius={4} />
-            <Line  type="monotone" dataKey="line" stroke="var(--color-line)" strokeWidth={2} dot={false} />
+            <Area type="monotone" dataKey="area" stroke="var(--color-area)" fill="var(--color-area)" fillOpacity={0.3} />
+            <Bar dataKey="bar" fill="var(--color-bar)" radius={4} />
+            <Line type="monotone" dataKey="line" stroke="var(--color-line)" strokeWidth={2} dot={false} />
           </ComposedChart>
         </ChartContainer>
       </ShowcaseSection>
@@ -485,7 +485,7 @@ export default function ChartShowcasePage() {
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
             <Radar name="alice" dataKey="alice" stroke="var(--color-alice)" fill="var(--color-alice)" fillOpacity={0.4} />
-            <Radar name="bob"   dataKey="bob"   stroke="var(--color-bob)"   fill="var(--color-bob)"   fillOpacity={0.4} />
+            <Radar name="bob" dataKey="bob" stroke="var(--color-bob)" fill="var(--color-bob)" fillOpacity={0.4} />
           </RadarChart>
         </ChartContainer>
       </ShowcaseSection>
@@ -552,7 +552,7 @@ export default function ChartShowcasePage() {
             </PolarRadiusAxis>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <RadialBar dataKey="desktop" stackId="a" cornerRadius={5} fill="var(--color-desktop)" className="stroke-transparent stroke-2" />
-            <RadialBar dataKey="mobile"  stackId="a" cornerRadius={5} fill="var(--color-mobile)"  className="stroke-transparent stroke-2" />
+            <RadialBar dataKey="mobile" stackId="a" cornerRadius={5} fill="var(--color-mobile)" className="stroke-transparent stroke-2" />
           </RadialBarChart>
         </ChartContainer>
       </ShowcaseSection>
@@ -590,24 +590,6 @@ export default function ChartShowcasePage() {
             <Bar dataKey="b" stackId="s" fill="var(--color-b)" radius={[0, 0, 0, 0]} />
             <Bar dataKey="c" stackId="s" fill="var(--color-c)" radius={[4, 4, 0, 0]} />
           </BarChart>
-        </ChartContainer>
-      </ShowcaseSection>
-
-      {/* Pie Chart — Simple */}
-      <ShowcaseSection
-        title="Pie Chart — Simple"
-        description="Full pie (no inner radius) with label lines showing each slice name."
-        childrenClassName="w-full max-w-sm"
-      >
-        <ChartContainer config={simplePieConfig} className="mx-auto h-64 w-full">
-          <PieChart>
-            <ChartTooltip content={<ChartTooltipContent nameKey="value" hideLabel />} />
-            <Pie data={simplePieData} dataKey="value" nameKey="name" outerRadius={90} label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`} labelLine>
-              {simplePieData.map((entry) => (
-                <Cell key={entry.name} fill={`var(--color-${entry.name})`} />
-              ))}
-            </Pie>
-          </PieChart>
         </ChartContainer>
       </ShowcaseSection>
 
