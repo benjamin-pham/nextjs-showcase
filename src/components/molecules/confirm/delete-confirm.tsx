@@ -2,6 +2,7 @@
 
 import React from "react"
 import { Trash2Icon } from "lucide-react"
+import { create } from "zustand"
 
 import {
   AlertDialog,
@@ -17,10 +18,6 @@ import {
 import { Input } from "@/components/atoms/input"
 import { Label } from "@/components/atoms/label"
 
-// ---------------------------------------------------------------------------
-// Imperative API — gọi như toast.info(...)
-// ---------------------------------------------------------------------------
-
 export interface DeleteConfirmOptions {
   title?: string
   description?: string
@@ -35,36 +32,19 @@ export interface DeleteConfirmOptions {
 interface DialogState extends DeleteConfirmOptions {
   open: boolean
   loading: boolean
+  set: (patch: Partial<Omit<DialogState, "set">>) => void
 }
 
-const DEFAULT: DialogState = {
+const useDialogStore = create<DialogState>((set) => ({
   open: false,
   loading: false,
   onConfirm: () => { },
-}
-
-let _state: DialogState = DEFAULT
-const _listeners = new Set<() => void>()
-
-function _set(patch: Partial<DialogState>) {
-  _state = { ..._state, ...patch }
-  _listeners.forEach((l) => l())
-}
+  set: (patch) => set(patch),
+}))
 
 /** Mở hộp thoại xác nhận xóa. Đặt <DeleteConfirmContainer /> trong layout. */
 export function deleteConfirm(options: DeleteConfirmOptions) {
-  _set({ ...options, open: true, loading: false })
-}
-
-function useDialogStore() {
-  return React.useSyncExternalStore(
-    (cb) => {
-      _listeners.add(cb)
-      return () => _listeners.delete(cb)
-    },
-    () => _state,
-    () => _state,
-  )
+  useDialogStore.getState().set({ ...options, open: true, loading: false })
 }
 
 export function DeleteConfirmContainer() {
@@ -75,6 +55,7 @@ export function DeleteConfirmContainer() {
     description = "Hành động này không thể hoàn tác. Bạn có chắc chắn muốn xóa không?",
     onConfirm,
     confirmText,
+    set,
   } = useDialogStore()
 
   const [inputValue, setInputValue] = React.useState("")
@@ -83,7 +64,7 @@ export function DeleteConfirmContainer() {
   const isConfirmed = requiresConfirmText ? inputValue === confirmText : true
 
   function handleOpenChange(next: boolean) {
-    _set({ open: next })
+    set({ open: next })
     if (!next) setInputValue("")
   }
 
@@ -129,7 +110,7 @@ export function DeleteConfirmContainer() {
             className="cursor-pointer"
             onClick={async (e) => {
               e.preventDefault()
-              _set({ loading: true })
+              set({ loading: true })
               await onConfirm()
               handleOpenChange(false)
             }}
