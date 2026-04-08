@@ -44,7 +44,14 @@ const useDialogStore = create<DialogState>((set) => ({
 
 /** Mở hộp thoại xác nhận xóa. Đặt <DeleteConfirmContainer /> trong layout. */
 export function deleteConfirm(options: DeleteConfirmOptions) {
-  useDialogStore.getState().set({ ...options, open: true, loading: false })
+  useDialogStore.getState().set({
+    title: undefined,
+    description: undefined,
+    confirmText: undefined,
+    ...options,
+    open: true,
+    loading: false,
+  })
 }
 
 export function DeleteConfirmContainer() {
@@ -93,6 +100,13 @@ export function DeleteConfirmContainer() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onPaste={(e) => e.preventDefault()}
+              onKeyDown={async (e) => {
+                if (e.key === "Enter" && isConfirmed && !loading) {
+                  set({ loading: true })
+                  await onConfirm()
+                  handleOpenChange(false)
+                }
+              }}
               placeholder={confirmText}
               autoComplete="off"
               disabled={loading}

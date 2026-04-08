@@ -276,8 +276,12 @@ export const showcaseMenuItems: IMenuItem[] = [
         title: "Data Table",
         url: "/showcase/molecules/data-table",
         icon: Circle,
-      }
-
+      },
+      {
+        title: "Delete Confirm",
+        url: "/showcase/molecules/confirm",
+        icon: Circle,
+      },
     ]
   },
   {
