@@ -1,5 +1,6 @@
+import AppHeader from "@/app/showcase/app-header"
 import { showcaseMenuItems } from "@/app/showcase/showcase-menu-items"
-import AppHeader from "@/components/app-header"
+
 import { AppSidebar } from "@/components/app-sidebar"
 import { SidebarProvider } from "@/components/atoms/sidebar"
 import { type ReactNode } from "react"
