@@ -1,4 +1,5 @@
 "use client"
+import axios from 'axios';
 import { ModeToggle } from '@/components/mode-toggle';
 import { Button } from '@/components/atoms/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/atoms/dropdown-menu';
@@ -14,7 +15,7 @@ const AppHeader = () => {
   const router = useRouter();
 
   async function handleLogout() {
-    await fetch("/api/auth/logout", { method: "POST" })
+    await axios.post("/api/auth/logout")
     router.push("/login")
   }
 
